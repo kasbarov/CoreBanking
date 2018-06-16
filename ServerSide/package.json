@@ -1,0 +1,19 @@
+{
+  "name": "bankserver",
+  "version": "1.0.0",
+  "description": "RESTful API for Bank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amribrahimshaker/BankServer.git"
+  },
+  "author": "Amr Ibrahim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amribrahimshaker/BankServer/issues"
+  },
+  "homepage": "https://github.com/amribrahimshaker/BankServer#readme"
+}
