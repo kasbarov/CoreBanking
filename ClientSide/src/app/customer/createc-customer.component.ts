@@ -39,9 +39,14 @@ export class CreatecCustomerComponent implements OnInit {
     console.log(customer);
 
     this.customerService.createCustomer(customer).subscribe((result)=>{
-      if (result =='0')
-        this.router.navigateByUrl('customers');
-    
+      console.log(result);
+      if ( result['status'] =="SUCCESS")
+      {
+        console.log ('customer created successfully');
+        this.router.navigateByUrl('customer');
+      }else{
+        console.log ('status' + result['status']);
+      }
     });
     
   }

@@ -26,7 +26,9 @@ ClientSide/node_modules/
 ClientSide/typings/
 ClientSide/src/assets/
 ClientSide/src/environments/
+ServerSide/BankServerApp/node_modules/
 # =========================
 # Operating System Files
 # =========================
 ClientSide/CHANGELOG.md
+node_modules
