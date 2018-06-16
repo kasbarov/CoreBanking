@@ -29,7 +29,7 @@ exports.customer_createCustomer = function(req, res, next){
     });
 
     customer.save().then(function(){
-        res.json({status:'0'});
+        res.json({status:'SUCCESS'});
     }).catch(function(err){
         res.json({status:'1'});
     });
