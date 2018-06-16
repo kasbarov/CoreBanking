@@ -14,12 +14,15 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { CustomerComponent } from '../../customer/customer.component';
 import { CreatecCustomerComponent } from '../../customer/createc-customer.component';
 
-import {
+import {  
   MatButtonModule,
   MatInputModule,
   MatRippleModule,
   MatTooltipModule,
 } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { CustomerService } from '../../customer/customer.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +31,9 @@ import {
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
-    MatTooltipModule,
+    MatTooltipModule,    
+    ReactiveFormsModule, 
+    HttpClientModule,
   ],
   declarations: [
     DashboardComponent,
@@ -41,6 +46,9 @@ import {
     UpgradeComponent,
     CustomerComponent,
     CreatecCustomerComponent,
+  ],
+  providers :[
+    CustomerService,
   ]
 })
 

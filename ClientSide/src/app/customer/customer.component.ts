@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerService } from './customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor( private  router:Router) { }
+  allCustomers:{}[];
+
+  constructor( private  router:Router, private customerService:CustomerService) { }
 
   ngOnInit() {
+    this.customerService.getAllCustmer().subscribe((_allCustomers)=>{
+      this.allCustomers = _allCustomers;
+    })
   }
 
   // nnavigate to create customer

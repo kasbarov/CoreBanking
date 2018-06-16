@@ -25,27 +25,28 @@
                                       Email
                                   </th>
                                   <th>
-                                      City
+                                      Address
                                   </th>
                                  
                               </thead>
                               <tbody>
-                                  <tr>
+                                  <tr *ngFor = 'let customer of allCustomers'>
+                                
                                       <td>
-                                          986422
+                                            {{customer.ssn}}
                                       </td>
                                       <td>
-                                          Khalid Elawad
+                                         {{customer.firstName}} {{customer.lastName}}
                                       </td>
                                       <td>
-                                         khalid.ali@mum.edu
+                                         {{customer.email}}
                                       </td>
                                       <td>
-                                         Fairfield
+                                         {{customer.address}}
                                       </td>
                                      
                                   </tr>
-                                  <tr>
+                                  <!-- <tr>
                                       <td>
                                           2
                                       </td>
@@ -74,7 +75,7 @@
                                           Baileux
                                       </td>
                                      
-                                  </tr>
+                                  </tr> -->
                             
                               </tbody>
                           </table>
