@@ -29,3 +29,5 @@ ClientSide/src/environments/
 # =========================
 # Operating System Files
 # =========================
+/BankServer/BankServerApp/node_modules
+/ServerSide/BankServerApp/node_modules
