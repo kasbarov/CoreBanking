@@ -2,6 +2,8 @@ const User = require('../model/user');
 
 // http://localhost:3000/users/
 exports.user_list = function(req, res, next){
+
+    console.log('Inside user_list api');
     User.find()
         .sort([['username', 'ascending']])
         .exec(function(err, list_users){
