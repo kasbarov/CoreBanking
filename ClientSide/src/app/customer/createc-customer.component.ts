@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerService } from './customer.service';
+import { NotifierService } from '../util/notifier.service';
 
 @Component({
   selector: 'app-createc-customer',
@@ -12,7 +13,8 @@ export class CreatecCustomerComponent implements OnInit {
 
   customerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,  private  router:Router, private customerService:CustomerService) { 
+  constructor(private formBuilder: FormBuilder,  private  router:Router, 
+    private customerService:CustomerService) { 
 
     this.customerForm = formBuilder.group({
       'customerData': formBuilder.group({
@@ -43,7 +45,11 @@ export class CreatecCustomerComponent implements OnInit {
       if ( result['status'] =="SUCCESS")
       {
         console.log ('customer created successfully');
-        this.router.navigateByUrl('customer');
+
+        // show success message on customers list page
+        
+        this.router.navigateByUrl('customer?showMsg=0');
+        this.notifier.notify();
       }else{
         console.log ('status' + result['status']);
       }

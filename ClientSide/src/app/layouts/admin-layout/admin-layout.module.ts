@@ -23,6 +23,7 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { CustomerService } from '../../customer/customer.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifierService } from '../../util/notifier.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -49,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers :[
     CustomerService,
+   
   ]
 })
 
