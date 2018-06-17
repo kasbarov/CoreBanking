@@ -23,6 +23,10 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { CustomerService } from '../../customer/customer.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifierService } from '../../util/notifier.service';
+import { AccountComponent } from '../../account/account.component';
+import { AccountService } from '../../account/account.service';
+import { CreatecAccountComponent } from '../../account/create-account.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -46,9 +50,12 @@ import { HttpClientModule } from '@angular/common/http';
     UpgradeComponent,
     CustomerComponent,
     CreatecCustomerComponent,
+    AccountComponent,
+    CreatecAccountComponent
   ],
   providers :[
     CustomerService,
+    AccountService,
   ]
 })
 

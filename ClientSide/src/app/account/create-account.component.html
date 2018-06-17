@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Create Account</h4>
+                        <p class="card-category">Account Information</p>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+                        
+                            <div formGroupName="accountData">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Account Number" type="text" id="accountNumber" formControlName="accountNumber">
+                                      <div *ngIf="!accountForm['controls']['accountData']['controls']['accountNumber'].valid">
+                                        *
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Nick Name" type="text" id="nickName" formControlName="nickName">
+                                      <div *ngIf="!accountForm['controls']['accountData']['controls']['nickName'].valid">
+                                        *
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Balance" type="text" type="text" id="balance" formControlName="balance">
+                                   
+                                  </mat-form-field>
+                                  <div *ngIf="!accountForm['controls']['accountData']['controls']['balance'].valid">
+                                    *
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <!-- <mat-form-field class="example-full-width"> -->
+
+                                  
+                                    <!-- <input matInput placeholder="Account Type" type="text" id="accountType" formControlName="accountType"> -->
+                                    
+                                    
+                               
+                                        
+                                    <select formControlName="accountType" placeholder="Account Type" item-width="100%" class="example-full-width">
+                                           
+                                            <option *ngFor="let at of accountTypes" value={{at}} >
+                                                {{at}}
+                                            </option>
+                                        </select>
+                                       
+                             <!--
+                                        <div class="radio" *ngFor="let acct of accountTypes">
+                                        <label>
+                                            <input type="radio"
+                                                    formControlName="accountType"
+                                                    [value]="acct">
+                                            {{acct}}
+                                        </label>
+                                        </div>
+-->
+                                        <div *ngIf="!accountForm['controls']['accountData']['controls']['accountType'].valid">
+                                            *
+                                            </div>
+                                   
+                                  <!-- </mat-form-field> -->
+                                </div>
+                            </div>
+
+                           
+
+                        </div> 
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="!accountForm.valid">Create Account</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

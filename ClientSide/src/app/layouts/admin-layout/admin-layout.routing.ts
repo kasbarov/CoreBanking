@@ -10,6 +10,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { CustomerComponent } from '../../customer/customer.component';
 import { CreatecCustomerComponent } from '../../customer/createc-customer.component';
+import { AccountComponent } from '../../account/account.component';
+import { CreatecAccountComponent } from '../../account/create-account.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -57,6 +59,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'customer',     component: CustomerComponent },
     { path: 'customer/create',     component: CreatecCustomerComponent },
+    { path: 'customer/accounts/query', component: AccountComponent },
+    { path: 'account/create/:id',     component: CreatecAccountComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
