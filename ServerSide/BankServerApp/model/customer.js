@@ -8,7 +8,8 @@ const CustomerSchema = new Schema({
     email: { type: String },
     firstName: { type: String },
     lastName: { type: String },
-    address: { type: String }
+    address: { type: String },
+    accounts: [{ accountNumber: String, nickName: String, balance: Number, accountType: String }]
 });
 
 

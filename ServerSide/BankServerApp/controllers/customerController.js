@@ -35,3 +35,35 @@ exports.customer_createCustomer = function(req, res, next){
     });
 
 }
+
+
+exports.customer_detail = function(req, res, next){
+
+    console.log('Inside customer_detail');
+    // Original
+    Customer.findOne({'ssn': req.params.id}).exec(function(err, user){
+        console.log(user);
+        res.json(user);
+    });
+
+}
+
+
+
+exports.customer_createAccount = function(req, res, next){
+
+    console.log('Inside customer_createAccount');
+    console.log(req.body);
+
+    Customer.findOneAndUpdate({'ssn': req.body.ssn},{$push: {'accounts': {'accountNumber': req.body.accountNumber, 'nickName': req.body.nickName, 'balance': req.body.balance, 'accountType': req.body.accountType} }}).exec(function(err, user){
+        console.log(user);
+        if(user){
+            res.json({status:'SUCCESS'});
+        }else{
+            res.json({status:'1'});
+        }
+        // res.json(user);
+    });
+
+}
+
