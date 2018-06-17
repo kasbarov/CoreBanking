@@ -35,3 +35,33 @@ exports.customer_createCustomer = function(req, res, next){
     });
 
 }
+exports.customer_account_list = function(req, res, next){
+
+    console.log('Inside customer_account_list');
+
+    Customer.findById(req.params.id).exec(function(err, customer){
+            console.log(customer);
+            if(err) return next(err);
+            res.json(customer.account)
+            
+    });
+}
+exports.customer_account_addAccount = function(req, res, next){
+
+    console.log('Inside customer_addAccount');
+
+    Customer.findById(req.params.id).exec(function (err, customer){
+        if(err) return next(err);
+        customer.account.push({"account":req.body.account});
+    });
+    customer.save().then(function(){
+        res.json({status:'SUCCESS'});
+    }).catch(function(err){
+        res.json({status:'1'});
+    });
+}
+exports.customer_account_cashDeposit = function(req, res, next){
+
+    console.log('Inside customer_cashDeposit');
+
+}
