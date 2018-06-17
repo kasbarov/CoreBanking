@@ -19,6 +19,7 @@ export class AccountComponent implements OnInit{
   customer:{};
 
   accounts:{}[];
+  showSuccessMsg: boolean = false;
 
 
   constructor(private  router:Router,private activatedRoute: ActivatedRoute, private accountService:AccountService) {
@@ -27,7 +28,9 @@ export class AccountComponent implements OnInit{
       (param: any) => {
         this.id = param['id'];
         console.log("got id: " + this.id);
-
+        
+        if (param['showMsg'])
+        this.showSuccessMsg = true;
       }
     );
     

@@ -25,7 +25,7 @@ export class CreatecAccountComponent implements OnInit {
 
         this.accountForm = formBuilder.group({
           'accountData': formBuilder.group({
-            'accountNumber': ['', [Validators.required]],
+            // 'accountNumber': ['', [Validators.required]],
             'nickName': ['', [Validators.required]],
             'balance': ['', [Validators.required]],
             'accountType': ['', [Validators.required]]
@@ -52,18 +52,24 @@ export class CreatecAccountComponent implements OnInit {
         
 
         account.ssn = this.id;
+        account.accountNumber = Math.floor(100000 + Math.random() * 900000).toString();
         console.log('modified account');
         console.log(account);
+
+        var myDate = new Date();  
+        
 
         this.accountService.createAccount(account).subscribe((result)=>{
         console.log(result);
         if ( result['status'] =="SUCCESS"){
             console.log ('account created successfully');
-            this.router.navigateByUrl('customer/accounts/query?id=' + this.id);
+            this.router.navigateByUrl('customer/accounts/query?id=' + this.id + '&showMsg=0');
         }else{
             console.log ('status' + result['status']);
         }
         });
+
+
         
     }
 

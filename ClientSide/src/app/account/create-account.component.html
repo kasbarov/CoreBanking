@@ -12,6 +12,8 @@
                         
                             <div formGroupName="accountData">
                             <div class="row">
+                               
+                               <!-- 
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <input matInput placeholder="Account Number" type="text" id="accountNumber" formControlName="accountNumber">
@@ -20,6 +22,8 @@
                                         </div>
                                     </mat-form-field>
                                 </div>
+                                -->
+                                
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <input matInput placeholder="Nick Name" type="text" id="nickName" formControlName="nickName">
@@ -41,36 +45,26 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                  <!-- <mat-form-field class="example-full-width"> -->
+                                  
 
                                   
                                     <!-- <input matInput placeholder="Account Type" type="text" id="accountType" formControlName="accountType"> -->
                                     
-                                    
+                                
                                
-                                        
-                                    <select formControlName="accountType" placeholder="Account Type" item-width="100%" class="example-full-width">
+                                       
+                                    <select formControlName="accountType" placeholder="Account Type"   style="width: 100%;">
                                            
-                                            <option *ngFor="let at of accountTypes" value={{at}} >
+                                            <option *ngFor="let at of accountTypes" value={{at}}  >
                                                 {{at}}
                                             </option>
                                         </select>
-                                       
-                             <!--
-                                        <div class="radio" *ngFor="let acct of accountTypes">
-                                        <label>
-                                            <input type="radio"
-                                                    formControlName="accountType"
-                                                    [value]="acct">
-                                            {{acct}}
-                                        </label>
-                                        </div>
--->
+                                      
                                         <div *ngIf="!accountForm['controls']['accountData']['controls']['accountType'].valid">
                                             *
                                             </div>
                                    
-                                  <!-- </mat-form-field> -->
+                                
                                 </div>
                             </div>
 
@@ -83,23 +77,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-profile">
-                    <div class="card-avatar">
-                        <a href="#pablo">
-                            <img class="img" src="../assets/img/faces/marc.jpg" />
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                        <h4 class="card-title">Alec Thompson</h4>
-                        <p class="card-description">
-                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                        </p>
-                        <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
-                    </div>
-                </div>
-            </div>
+
+           
+
         </div>
     </div>
   </div>
