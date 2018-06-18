@@ -4,17 +4,29 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AccountService {
+  
+  
+  // deposit money by calling the server
+  deposit(depositInfo:{}): any {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        
+      })
+    };
+    return this.http.post<string>('http://localhost:3000/customers/deposit', depositInfo, httpOptions);
+  }
 
   constructor(private http: HttpClient) { }
 
 
 
 
-  // get customer from backend
+  // get customer info from backend using ssn
   // http://localhost:3000/customers/1111
-  getCustmer(id : String) {
-    console.log('going to call' + id);
-    return this.http.get<{}>('http://localhost:3000/customers/'+id);
+  getCustmer(ssn : String) {
+    console.log('going to call' + ssn);
+    return this.http.get<{}>('http://localhost:3000/customers/'+ssn);
   }
 
    // save customer in the backend

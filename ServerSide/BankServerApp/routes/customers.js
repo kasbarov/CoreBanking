@@ -13,4 +13,6 @@ router.get('/:id', customer_controller.customer_detail);
 
 router.post('/createAccount', customer_controller.customer_createAccount);
 
+router.post('/deposit', customer_controller.deposit_amount);
+
 module.exports = router;

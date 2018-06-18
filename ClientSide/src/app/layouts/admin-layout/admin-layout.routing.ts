@@ -12,6 +12,7 @@ import { CustomerComponent } from '../../customer/customer.component';
 import { CreatecCustomerComponent } from '../../customer/createc-customer.component';
 import { AccountComponent } from '../../account/account.component';
 import { CreatecAccountComponent } from '../../account/create-account.component';
+import { DepositComponent } from '../../account/deposit.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -59,7 +60,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'customer',     component: CustomerComponent },
     { path: 'customer/create',     component: CreatecCustomerComponent },
-    { path: 'customer/accounts/query', component: AccountComponent },
+    { path: 'customer/accounts', component: AccountComponent },
+    { path: 'customer/accounts/deposit', component: DepositComponent },
     { path: 'account/create/:id',     component: CreatecAccountComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },

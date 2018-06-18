@@ -23,6 +23,9 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { AuthGuard } from './guards/auth.guard';
+
 
 
 @NgModule({
@@ -42,9 +45,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent,
    
    
+   
 
   ],
-  providers: [],
+  providers: [JwtInterceptor, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
