@@ -28,6 +28,8 @@ import { AccountComponent } from '../../account/account.component';
 import { AccountService } from '../../account/account.service';
 import { CreatecAccountComponent } from '../../account/create-account.component';
 import { DepositComponent } from '../../account/deposit.component';
+import { LoginComponent } from '../../login/login.component';
+import { AuthenticationService } from '../../services/authentication.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { DepositComponent } from '../../account/deposit.component';
     MatTooltipModule,    
     ReactiveFormsModule, 
     HttpClientModule,
+   
   ],
   declarations: [
     DashboardComponent,
@@ -53,11 +56,13 @@ import { DepositComponent } from '../../account/deposit.component';
     CreatecCustomerComponent,
     AccountComponent,
     CreatecAccountComponent, 
-    DepositComponent
+    DepositComponent,
+    
   ],
   providers :[
     CustomerService,
     AccountService,
+   
   ]
 })
 

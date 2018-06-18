@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -25,6 +25,11 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './services/authentication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
+
 
 
 
@@ -35,7 +40,9 @@ import { AuthGuard } from './guards/auth.guard';
     HttpModule,
     ComponentsModule,
     RouterModule,
+    ReactiveFormsModule, 
     AppRoutingModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -43,12 +50,14 @@ import { AuthGuard } from './guards/auth.guard';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-   
-   
+    LoginComponent,
+    LogoutComponent,
+
+    
    
 
   ],
-  providers: [JwtInterceptor, AuthGuard],
+  providers: [JwtInterceptor, AuthGuard, AuthenticationService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

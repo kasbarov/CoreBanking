@@ -1,4 +1,7 @@
 const User = require('../model/user');
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
+
 
 // http://localhost:3000/users/
 exports.user_list = function(req, res, next){
@@ -34,12 +37,24 @@ exports.user_authenticate = function(req, res, next){
 
     User.findOne({'username' : req.body.username, 'password' : req.body.password})
         .exec(function(err, user){
-            if(err) return next(err);
-            
-            if(user)
-                res.json(user);
-            else
-            res.json({'message' : 'User not found'});
+            if(err) {
+                console.log('authentication error');
+
+                return next(err);
+            }
+         
+            if(user){
+                var token = jwt.sign({ id: req.body.username }, 'supersecret', {
+                    expiresIn: 86400 // expires in 24 hours
+                  });
+                  res.status(200).send({ auth: true, token: token });
+            }
+               
+            else{
+                console.log('no user found');
+           // res.json({'message' : 'User not found'});
+            res.status(200).send({ auth: false });
+            }
         });
 
 }

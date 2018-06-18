@@ -13,6 +13,8 @@ import { CreatecCustomerComponent } from '../../customer/createc-customer.compon
 import { AccountComponent } from '../../account/account.component';
 import { CreatecAccountComponent } from '../../account/create-account.component';
 import { DepositComponent } from '../../account/deposit.component';
+import { AuthGuard } from '../../guards/auth.guard';
+import { LoginComponent } from '../../login/login.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -57,7 +59,8 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent },
+    
+    { path: 'dashboard',      component: DashboardComponent,  canActivate: [AuthGuard] },
     { path: 'customer',     component: CustomerComponent },
     { path: 'customer/create',     component: CreatecCustomerComponent },
     { path: 'customer/accounts', component: AccountComponent },
