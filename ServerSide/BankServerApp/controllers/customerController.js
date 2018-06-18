@@ -67,29 +67,3 @@ exports.customer_createAccount = function(req, res, next){
 
 }
 
-
-// deposit money in the customer account
-exports.deposit_amount = function(req, res, next){
-
-    console.log('Inside deposit_amount');
-    console.log(req.body);
-
-    let amount2Deposit = req.body.amount;
-    Customer
-    .findOneAndUpdate(
-        {'ssn': req.body.ssn, 'accounts.accountNumber': req.body.accountNumber},
-        {$inc : {"accounts.$.balance" : amount2Deposit} })
-        .exec(function(err, customer){
-     
-            console.log(customer);
-      
-            if(customer){
-            res.json({status:'SUCCESS'});
-        }else{
-            res.json({status:'FAIL'});
-        }
-        // res.json(user);
-    });
-
-}
-
