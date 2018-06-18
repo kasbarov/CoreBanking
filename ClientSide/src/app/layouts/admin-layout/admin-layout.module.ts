@@ -27,6 +27,7 @@ import { NotifierService } from '../../util/notifier.service';
 import { AccountComponent } from '../../account/account.component';
 import { AccountService } from '../../account/account.service';
 import { CreatecAccountComponent } from '../../account/create-account.component';
+import { DepositComponent } from '../../account/deposit.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -51,7 +52,8 @@ import { CreatecAccountComponent } from '../../account/create-account.component'
     CustomerComponent,
     CreatecCustomerComponent,
     AccountComponent,
-    CreatecAccountComponent
+    CreatecAccountComponent, 
+    DepositComponent
   ],
   providers :[
     CustomerService,

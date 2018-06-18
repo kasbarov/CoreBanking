@@ -7,7 +7,7 @@
                 <i class="material-icons">close</i>
             </button>
             <span data-notify="message">
-                Account Created Successfully!!</span>
+                Operation Done Successfully!!</span>
         </div>
 
 
@@ -73,7 +73,9 @@
                                     <th>
                                         Account Type
                                     </th>
-                                   
+                                    <th>
+                                        Transactions
+                                    </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor = 'let account of accounts'>
@@ -91,7 +93,11 @@
                                         <td>
                                            {{account.accountType}}
                                         </td>
- 
+                                        <td>
+                                            <a [routerLink]="['deposit']" [queryParams]="{ssn: customer.ssn, accountNumber : account.accountNumber }"><i class="material-icons">add</i></a>
+                                            <a [routerLink]="['withdraw']" [queryParams]="{ssn: customer.ssn,  accountNumber : account.accountNumber }"><i class="material-icons">remove</i></a>
+                                         </td>
+
                                     </tr>
 
                                 </tbody>

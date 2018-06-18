@@ -63,7 +63,7 @@ export class CreatecAccountComponent implements OnInit {
         console.log(result);
         if ( result['status'] =="SUCCESS"){
             console.log ('account created successfully');
-            this.router.navigateByUrl('customer/accounts/query?id=' + this.id + '&showMsg=0');
+            this.router.navigateByUrl('customer/accounts?id=' + this.id + '&showMsg=0');
         }else{
             console.log ('status' + result['status']);
         }
