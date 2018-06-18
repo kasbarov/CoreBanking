@@ -16,7 +16,7 @@ export class AccountComponent implements OnInit{
   private subscription: Subscription;
   id: string;
 
-  customer:{}= {ssn:''};
+  customer:{};
 
   accounts:{}[];
   showSuccessMsg: boolean = false;
@@ -29,7 +29,6 @@ export class AccountComponent implements OnInit{
         this.id = param['id'];
         console.log("got id: " + this.id);
         
-        
         if (param['showMsg'])
         this.showSuccessMsg = true;
       }
@@ -40,13 +39,11 @@ export class AccountComponent implements OnInit{
   ngOnInit(): void {
 
     this.accountService.getCustmer(this.id).subscribe((customer)=>{
-        
       this.customer = customer;
-     this.accounts = customer["accounts"];
-     console.log( this.customer);
-     console.log(this.accounts);
-   })
-
+      this.accounts = customer["accounts"];
+      console.log(this.customer);
+      console.log(this.accounts);
+    })
 
   }
 
