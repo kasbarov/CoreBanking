@@ -93,3 +93,41 @@ exports.deposit_amount = function(req, res, next){
 
 }
 
+// withdraw money in the customer account
+exports.withdraw_amount = function(req, res, next){
+    console.log('Inside withdraw_amount');
+    console.log(req.body);
+
+    let amount_to_withdraw = req.body.amount;
+    console.log("amount_to_withdraw: "+amount_to_withdraw);
+    /* let current_balance = Customer
+                           .findOne(
+                            {'ssn': req.body.ssn,
+                             'accounts.accountNumber': req.body.accountNumber},
+                             {"accounts.$.balance":1});
+    console.log("current_balance: "+JSON.stringify(current_balance));
+     */
+
+
+    Customer
+    .findOneAndUpdate(
+        {'ssn': req.body.ssn, 'accounts.accountNumber': req.body.accountNumber},
+        {$inc : {"accounts.$.balance" : -amount_to_withdraw} })
+        .exec(function(err, customer){
+         
+            console.log(customer);
+
+           /*  if({"customer.accounts.$.balance": {$lt :  0}}){
+                res.json({status:'FAIL'});
+            }else  {}  */
+                if(customer){
+                    res.json({status:'SUCCESS'});
+                }else{
+                    res.json({status:'FAIL'});
+                }
+                  
+        // res.json(user);
+    });
+}
+
+

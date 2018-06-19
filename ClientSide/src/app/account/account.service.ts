@@ -16,7 +16,17 @@ export class AccountService {
     };
     return this.http.post<string>('http://localhost:3000/customers/deposit', depositInfo, httpOptions);
   }
-
+// withdraw money by calling the server
+withdraw(withdrawInfo:{}): any {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      
+    })
+  };
+  return this.http.post<string>('http://localhost:3000/customers/withdraw', withdrawInfo, httpOptions);
+}
+  
   constructor(private http: HttpClient) { }
 
 
