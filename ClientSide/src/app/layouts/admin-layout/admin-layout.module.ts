@@ -30,6 +30,7 @@ import { CreatecAccountComponent } from '../../account/create-account.component'
 import { DepositComponent } from '../../account/deposit.component';
 import { LoginComponent } from '../../login/login.component';
 import { AuthenticationService } from '../../services/authentication.service';
+import { JwtInterceptor } from '../../helpers/jwt.interceptor';
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +41,7 @@ import { AuthenticationService } from '../../services/authentication.service';
     MatInputModule,
     MatTooltipModule,    
     ReactiveFormsModule, 
-    HttpClientModule,
+   
    
   ],
   declarations: [

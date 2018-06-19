@@ -27,7 +27,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/authentication.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 
 
@@ -43,6 +43,7 @@ import { LogoutComponent } from './logout/logout.component';
     ReactiveFormsModule, 
     AppRoutingModule,
     HttpClientModule,
+  
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -57,7 +58,11 @@ import { LogoutComponent } from './logout/logout.component';
    
 
   ],
-  providers: [JwtInterceptor, AuthGuard, AuthenticationService,],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  }, AuthGuard, AuthenticationService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
