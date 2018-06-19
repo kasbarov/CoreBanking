@@ -45,7 +45,7 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
   
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+      apiKey: 'AIzaSyDi-VWFqep3iZ8J2cHZAiG3Ed9pi3M5Fic'
     })
   ],
   declarations: [
