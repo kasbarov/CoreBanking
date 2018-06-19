@@ -13,6 +13,8 @@
             <button mat-raised-button (click)="navCreateCustomer()" class="btn btn-success pull-right">Create Customer</button>
             <div class="clearfix"></div>
         </div>
+
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -20,21 +22,29 @@
                         <h4 class="card-title ">Customers</h4>
                         <p class="card-category"> Customer Information</p>
                     </div>
+
+                    
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        SSN
+                                        SSN <br>
+                                        <input type="text" (input)=0 #qSSN placeholder="SSN"/>
                                     </th>
                                     <th>
-                                        Name
+                                        Name <br>
+                                        <input type="text" (input)=0 #qName placeholder="First Name"/>
+                                        
                                     </th>
                                     <th>
-                                        Email
+                                        Email<br>
+                                        <input type="text" (input)=0 #qEmail placeholder="Email"/>
                                     </th>
                                     <th>
-                                        Address
+                                        Address<br>
+                                        <input type="text" (input)=0 #qAddress placeholder="Address"/>
                                     </th>
                                     <th>
                                         Manage Accounts
@@ -42,7 +52,7 @@
 
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor='let customer of allCustomers'>
+                                    <tr *ngFor="let customer of allCustomers | search:qSSN.value:qName.value:qEmail.value:qAddress.value">
 
                                         <td>
                                             {{customer.ssn}}
