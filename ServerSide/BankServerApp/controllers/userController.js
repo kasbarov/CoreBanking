@@ -59,6 +59,8 @@ exports.user_authenticate = function(req, res, next){
 
 }
 
+
+
 exports.customer_account_list = function(req, res, next){
 
     console.log('Inside customer_account_list');

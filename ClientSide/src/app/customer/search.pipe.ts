@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
 
   transform(items,field0: string, field1: string,field2: string, field3: string) {
+    console.log ('items' + items);
     if (!items) return [];
     
     return items.filter(i => i.ssn.includes(field0)).filter(i => i.firstName.includes(field1))
