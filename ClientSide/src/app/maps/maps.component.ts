@@ -21,8 +21,9 @@ export class MapsComponent implements OnInit {
 
     
     var myLatlng = new google.maps.LatLng(41.0124907,-91.9596766);
+    var myLatlng2 = new google.maps.LatLng(41.01076,-91.961775);
     var mapOptions = {
-        zoom: 13,
+        zoom: 15,
         center: myLatlng,
         scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
         styles: [{
@@ -114,13 +115,23 @@ export class MapsComponent implements OnInit {
     };
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        title: "Hello World!"
-    });
+    var locations = [
+        ['Hy-Vee Branch', 41.006335,-91.965759,  4],
+        ['MUM Branch', 41.0124907,-91.9596766,  4],
+        ['Mac Branch',41.01076,-91.961775,  5],
+      
+      ];
 
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
+    for (let i = 0; i < locations.length; i++) {  
+        let marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          title:locations[i][0]
+         // map: map
+        })
+        marker.setMap(map)
+    };
+
+    
   }
 
 }
