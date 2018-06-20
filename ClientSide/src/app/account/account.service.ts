@@ -26,7 +26,18 @@ withdraw(withdrawInfo:{}): any {
   };
   return this.http.post<string>('http://localhost:3000/customers/withdraw', withdrawInfo, httpOptions);
 }
-  
+// transfer money by calling the server
+transfer(transferInfo:{}): any {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      
+    })
+  };
+  return this.http.post<string>('http://localhost:3000/customers/transfer', transferInfo, httpOptions);
+}
+
+
   constructor(private http: HttpClient) { }
 
 

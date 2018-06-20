@@ -29,6 +29,7 @@ import { AccountService } from '../../account/account.service';
 import { CreatecAccountComponent } from '../../account/create-account.component';
 import { DepositComponent } from '../../account/deposit.component';
 import { WithdrawComponent } from '../../account/withdraw.component';
+import { TransferComponent } from '../../account/transfer.component';
 import { LoginComponent } from '../../login/login.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { SearchPipe } from '../../customer/search.pipe';
@@ -61,6 +62,7 @@ import { JwtInterceptor } from '../../helpers/jwt.interceptor';
     CreatecAccountComponent, 
     DepositComponent,
     WithdrawComponent,
+    TransferComponent,
     SearchPipe
     
   ],

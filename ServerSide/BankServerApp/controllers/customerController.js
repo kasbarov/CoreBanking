@@ -130,4 +130,41 @@ exports.withdraw_amount = function(req, res, next){
     });
 }
 
+// transfer money 
+exports.Transfer_amount = function(req, res, next){
+    console.log('Inside Transfer_amount');
+    console.log(req.body);
 
+    let amount_to_transfer = req.body.amount;
+    console.log("amount_to_transfer: "+amount_to_transfer);
+// deducting money from the owner account
+    Customer
+    .findOneAndUpdate(
+        {'ssn': req.body.ssn, 'accounts.accountNumber': req.body.accountNumber},
+        {$inc : {"accounts.$.balance" : -amount_to_transfer} })
+        .exec(function(err, customer){
+         
+            console.log(customer);
+
+           /*  if({"customer.accounts.$.balance": {$lt :  0}}){
+                res.json({status:'FAIL'});
+            }else  {}  */
+                if(customer){
+                    res.json({status:'SUCCESS'});
+                }else{
+                    res.json({status:'FAIL'});
+                }
+                  
+        // res.json(user);
+    });
+//depositing money to the account no provided
+    Customer
+    .findOneAndUpdate(
+        {'accounts.accountNumber': req.body.accountNumber2},
+        {$inc : {"accounts.$.balance" : amount_to_transfer} })
+        .exec(function(err, customer){
+         
+            console.log(customer);
+    });
+
+}
