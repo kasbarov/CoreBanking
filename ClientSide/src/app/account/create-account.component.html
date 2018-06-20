@@ -52,9 +52,10 @@
                                     
                                 
                                
-                                       
-                                    <select formControlName="accountType" placeholder="Account Type"   style="width: 100%;">
+                                    <input matInput placeholder="Select Account Type" type="text" disabled>
+                                    <select  formControlName="accountType"    style="width: 100%;">
                                            
+                                    
                                             <option *ngFor="let at of accountTypes" value={{at}}  >
                                                 {{at}}
                                             </option>
