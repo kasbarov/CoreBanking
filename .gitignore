@@ -24,7 +24,6 @@ ClientSide/documentation/
 ClientSide/e2e/
 ClientSide/node_modules/
 ClientSide/typings/
-ClientSide/src/assets/
 ClientSide/src/environments/
 ServerSide/BankServerApp/node_modules/
 # =========================
